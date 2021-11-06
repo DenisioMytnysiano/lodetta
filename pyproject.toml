@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "lodetta"
+version = "0.1.0"
+description = "Simple and easily deployable logo detection API written in Python"
+authors = ["DenisioMytnysiano <den.mytnyk@ua.fm>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.70.0"
+torch = "^1.10.0"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+flake8-nb = "^0.3.1"
+black = "^21.10b0"
+jupyterblack = "^0.3.2"
+pre-commit = "^2.15.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
