@@ -47,7 +47,7 @@ jobs:
         with:
           context: database
           push: true
-          tags: ghcr.io/${{ github.OWNER_LC }}/lodetta-db-restore:latest
+          tags: ghcr.io/denisiomytnysiano/lodetta-db-restore:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
       -
