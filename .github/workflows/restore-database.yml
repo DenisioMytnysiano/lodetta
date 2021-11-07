@@ -1,17 +1,12 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Restore DB
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the develop branch
+ 
   push:
-    branches: [ feature/db-restore-image ]
+    branches: [ develop ]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build-db-restore:
     runs-on: ubuntu-latest
@@ -36,11 +31,6 @@ jobs:
           path: /tmp/.buildx-cache
           key: ${{ runner.os }}-buildx-db-restore-${{ github.sha }}
           restore-keys: ${{ runner.os }}-buildx-db-restore-
-      - 
-        name: Set lower case owner name
-        run: echo "OWNER_LC=${OWNER,,}" >> ${GITHUB_ENV}
-        env:
-          OWNER: '${{ github.repository_owner }}'
       -
         name: Build DB restore image
         uses: docker/build-push-action@v2
