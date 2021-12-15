@@ -48,23 +48,3 @@ async def import_weights(weights_config: WeightsImportModel):
             code=500,
             message=str(ex.args)
         )
-
-
-@detector_router.post("/state-report", response_description="Validate model and report the metrics",
-                      status_code=status.HTTP_200_OK)
-async def delete_logo_by_name():
-    try:
-        report = detector_service.state_report()
-        response_model = ResponseModel(
-            data=report,
-            code=200,
-            message="State report done successfully"
-        )
-        return response_model
-
-    except Exception as ex:
-        return ErrorResponseModel(
-            error=ex.__class__.__name__,
-            code=500,
-            message=str(ex.args)
-        )
